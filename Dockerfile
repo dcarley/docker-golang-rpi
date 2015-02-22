@@ -8,7 +8,9 @@ RUN for SUFFIX in "" "-updates" "-security"; do \
 
 RUN dpkg --add-architecture armhf
 RUN apt-get -y update
-RUN apt-get -y install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+RUN apt-get -y install \
+  pkg-config \
+  gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 
 RUN apt-get -y --no-install-recommends install \
   curl build-essential ca-certificates \
